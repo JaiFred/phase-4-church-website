@@ -19,6 +19,8 @@ class BulletinsController < ApplicationController
 
     def update 
         bulletin = Bulletin.find_by(params[:id])
+        session[:member_id] = member.id || session[:admin_id] = admin.id
+        user.save
     end
 
     private
@@ -29,7 +31,7 @@ class BulletinsController < ApplicationController
     # t.string :email
 
     def bulletin_params
-        params.permit(:name, :date, :activity, )
+        params.permit(:name, :date, :activity, :member_id, )
     end
 
     
