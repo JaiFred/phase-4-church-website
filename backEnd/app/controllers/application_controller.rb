@@ -21,12 +21,23 @@ class ApplicationController < ActionController::API
   # Individual sessions for member and admin
   # 
 
-  def current_user
+# later on this will return the user that's currently logged in
+  def current_member
     @current_user ||= Member.find_by_id(session[:member_id])
   end
 
-  def authenticate_user 
-    render json: {errors: "not authorized"}, status: :unauthorized unless current_user
+  private
+
+  def authenticate_member
+    render json: {errors: {Member: "not authorized"}}, status: :unauthorized unless current_member
+  end
+
+  def render_uprocessable_entity(invalid)
+    render json: {errors: invalid.record.errors}, status: :unprocessable_entity
+  end
+
+  def render_not_found(e)
+    render json: { errors: e.message }, status: :not_found
   end
 
 end
