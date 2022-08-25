@@ -1435,3 +1435,145 @@ Filter chain halted as :authenticate_member rendered or redirected
 Completed 401 Unauthorized in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 792)
 
 
+Started GET "/me" for ::1 at 2022-08-25 15:42:58 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 23ms (Views: 1.5ms | ActiveRecord: 0.7ms | Allocations: 813)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:42:58 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.93ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 14ms (Views: 2.5ms | ActiveRecord: 0.8ms | Allocations: 792)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:43:36 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 17ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 813)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:43:36 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 12ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 793)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:43:58 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 21ms (Views: 2.4ms | ActiveRecord: 2.1ms | Allocations: 4247)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:43:58 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 792)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:44:52 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 19ms (Views: 2.3ms | ActiveRecord: 2.1ms | Allocations: 4247)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:44:52 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.6ms | ActiveRecord: 1.4ms | Allocations: 792)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:45:21 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 32ms (Views: 3.0ms | ActiveRecord: 3.9ms | Allocations: 4247)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:45:21 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 792)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:45:24 -0400
+Processing by MembersController#show as HTML
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 12ms (Views: 2.4ms | ActiveRecord: 0.8ms | Allocations: 811)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-08-25 15:45:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/me" for ::1 at 2022-08-25 15:51:48 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 61ms (Views: 0.8ms | ActiveRecord: 41.4ms | Allocations: 3994)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:52:17 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 815)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:52:31 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.6ms | ActiveRecord: 1.5ms | Allocations: 792)
+
+
+Started GET "/me" for ::1 at 2022-08-25 15:52:31 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 792)
+
+

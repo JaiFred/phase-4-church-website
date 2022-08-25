@@ -18,7 +18,7 @@ class BulletinsController < ApplicationController
     end
 
     def update 
-        bulletin = Bulletin.find_by(params)
+        bulletin = Bulletin.find_by(params[:id])
     end
 
     private

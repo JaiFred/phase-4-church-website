@@ -8,9 +8,7 @@ function App() {
   const [authChecked, setAuthChecked] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:3000/me', {
-      credentials: 'include'
-    })
+    fetch('http://localhost:3000/me')
       .then(res => {
         if (res.ok) {
           res.json().then((user) => {
