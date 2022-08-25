@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/me", to: "members#show"
   get "/admin", to: "admins#show"
   post "/signup", to: "members#create"
-  post "/adminsignup", to: "admin#create"
+  post "/adminsignup", to: "admins#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 

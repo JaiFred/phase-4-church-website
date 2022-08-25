@@ -4,15 +4,15 @@ import UnauthenticatedApp from './UnauthenticatedApp'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentMember, setCurrentMember] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3000/me')
       .then(res => {
         if (res.ok) {
-          res.json().then((user) => {
-            setCurrentUser(user)
+          res.json().then((member) => {
+            setCurrentMember(member)
             setAuthChecked(true)
           })
         } else {
@@ -24,14 +24,14 @@ function App() {
   if(!authChecked) { return <div></div>}
   return (
     <Router>
-      {currentUser ? (
+      {currentMember ? (
           <AuthenticatedApp
-            setCurrentUser={setCurrentUser}
-            currentUser={currentUser}
+            setCurrentMember={setCurrentMember}
+            currentMember={currentMember}
           />
         ) : (
           <UnauthenticatedApp
-            setCurrentUser={setCurrentUser}
+            setCurrentMember={setCurrentMember}
           />
         )
       }

@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-
+    skip_before_action :authenticate_member, only: [:create]
     # Gets all users 
     # Sets up routes for user display
 
@@ -22,6 +22,8 @@ class MembersController < ApplicationController
         session[:member_id] = member.id
         render json: member, status: :created
     end
+
+    
 
     private
 

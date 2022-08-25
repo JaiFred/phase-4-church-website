@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 
-function Signup({ setCurrentUser }) {
+function Signup({ setCurrentMember }) {
   const history = useHistory()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -23,8 +23,8 @@ function Signup({ setCurrentUser }) {
     })
       .then(res => {
         if (res.ok) {
-          res.json().then(user => {
-            setCurrentUser(user)
+          res.json().then(member => {
+            setCurrentMember(member)
             history.push('/groups')
           })
         } else {

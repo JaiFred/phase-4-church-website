@@ -14,6 +14,7 @@ class BulletinsController < ApplicationController
 
     def create
         bulletin = Bulletin.create!(bulletin_params)
+        session[:member_id] = member.id || session[:admin_id] = admin.id
         render json: bulletin, status: :created
     end
 
@@ -31,7 +32,7 @@ class BulletinsController < ApplicationController
     # t.string :email
 
     def bulletin_params
-        params.permit(:name, :date, :activity, :member_id, )
+        params.permit(:name, :date, :activity, :member_id, :admin_id)
     end
 
     
