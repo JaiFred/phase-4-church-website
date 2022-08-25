@@ -9,7 +9,7 @@ function Login({ setCurrentUser }) {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('/login', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ function Login({ setCurrentUser }) {
         if (res.ok) {
           res.json().then(user => {
             setCurrentUser(user)
-            history.push('/groups')
+            history.push('http://localhost:3000/groups')
           })
         } else {
           res.json().then(({ error }) => {
