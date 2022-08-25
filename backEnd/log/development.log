@@ -272,3 +272,12 @@ Filter chain halted as :authenticate_member rendered or redirected
 Completed 401 Unauthorized in 30ms (Views: 12.8ms | ActiveRecord: 0.9ms | Allocations: 791)
 
 
+Started GET "/me" for ::1 at 2022-08-25 14:20:03 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 87ms (Views: 0.8ms | ActiveRecord: 60.0ms | Allocations: 3945)
+
+
