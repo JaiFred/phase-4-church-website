@@ -23,7 +23,7 @@ class ApplicationController < ActionController::API
 
 # later on this will return the user that's currently logged in
   def current_member
-    @current_user ||= Member.find_by_id(session[:member_id])
+    @current_member ||= Member.find_by_id(session[:member_id])
   end
 
   private
