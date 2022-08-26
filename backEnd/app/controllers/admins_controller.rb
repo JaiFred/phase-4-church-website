@@ -20,15 +20,15 @@ class AdminsController < ApplicationController
     #     render json: admin, status: :created
     # end
 
-    # private
+    private
 
     # t.string :name
     # t.string :username
     # t.string :password
     # t.string :email
 
-    # def admin_params
-    #     params.permit(:username, :password, :password_confirmation)
-    # end
+    def admin_params
+        params.permit(:username, :password, :password_confirmation)
+    end
 
 end

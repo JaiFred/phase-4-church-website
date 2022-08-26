@@ -21,7 +21,7 @@ puts '🌱 seeding admins 👮‍♂️'
 # t.integer :bulletin_id
 
 
-ad1 = Admin.create(name: "Charles", username: "CharlesDW", password: "123Admin", email: "CharlesDW@gmail.com")
+ad1 = Admin.create(name: "Charles", username: "CharlesDW", password_digest: "123Admin", email: "CharlesDW@gmail.com")
 # ad2 = Admin.create(name: "Martha", username: "MarthaWithers", password: "321Admin", email: "MarthaWithers@gmail.com")
 
 puts '🌱 seeding members 👨‍👩‍👦‍👦👨‍👩‍👧‍👧👨‍👩‍👧‍👦'
@@ -31,10 +31,10 @@ puts '🌱 seeding members 👨‍👩‍👦‍👦👨‍👩‍👧‍👧�
 # t.string :password
 # t.string :email
 
-m1 = Member.create(name: "Bill", username: "BillTT", password: "first", email: "BillTurner@gmail.com")
-m2 = Member.create(name: "Kelly", username: "KellyCrane", password: "second", email: "KellyCrane@gmail.com")
-m3 = Member.create(name: "Vanessa", username: "VanessAdler", password: "third", email: "VanessaAdler@gmail.com")
-m4 = Member.create(name: "Francis", username: "Frank", password: "fourth", email: "FrankTizic@gmail.com")
+m1 = Member.create(name: "Bill", username: "BillTT", password_digest: "first", email: "BillTurner@gmail.com")
+m2 = Member.create(name: "Kelly", username: "KellyCrane", password_digest: "second", email: "KellyCrane@gmail.com")
+m3 = Member.create(name: "Vanessa", username: "VanessAdler", password_digest: "third", email: "VanessaAdler@gmail.com")
+m4 = Member.create(name: "Francis", username: "Frank", password_digest: "fourth", email: "FrankTizic@gmail.com")
 
 puts '🌱 seeding bulletins 📆'
 
