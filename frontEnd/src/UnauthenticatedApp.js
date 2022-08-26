@@ -3,14 +3,14 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
-function UnauthenticatedApp({ setCurrentUser }) {
+function UnauthenticatedApp({ setCurrentMember }) {
   return (
     <Switch>
       <Route exact path="/">
-        <Login setCurrentUser={setCurrentUser} />
+        <Login setCurrentMember={setCurrentMember} />
       </Route>
       <Route exact path="/signup">
-        <Signup setCurrentUser={setCurrentUser}/>
+        <Signup setCurrentMember={setCurrentMember}/>
       </Route>
       <Redirect to="/" />
     </Switch>

@@ -29,15 +29,15 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_member
-    render json: {errors: {Member: "not authorized"}}, status: :unauthorized unless current_member
+    render json: {errors: {Member: "not authorized"}}, status: :unauthorized unless current_member #401
   end
 
   def render_uprocessable_entity(invalid)
-    render json: {errors: invalid.record.errors}, status: :unprocessable_entity
+    render json: {errors: invalid.record.errors}, status: :unprocessable_entity #422
   end
 
   def render_not_found(e)
-    render json: { errors: e.message }, status: :not_found
+    render json: { errors: e.message }, status: :not_found #404
   end
 
 end

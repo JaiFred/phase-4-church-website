@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom'
 function Signup({ setCurrentMember }) {
   const history = useHistory()
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [error, setError] = useState('')
@@ -17,6 +18,7 @@ function Signup({ setCurrentMember }) {
       },
       body: JSON.stringify({
         username,
+        email,
         password,
         password_confirmation: passwordConfirmation
       })
@@ -50,6 +52,21 @@ function Signup({ setCurrentMember }) {
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            className="w-full p-2 border"
+          />
+        </p>
+        <p>
+        <label
+            className="block text-lg font-semibold"
+            htmlFor="email"
+          >
+            Email
+          </label>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border"
           />
         </p>

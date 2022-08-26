@@ -4,7 +4,7 @@ import EventsContainer from './components/EventsContainer'
 import Navbar from './components/Navbar'
 import { Switch, Route, Redirect, useHistory } from 'react-router-dom'
 
-function AuthenticatedApp({ currentUser, setCurrentUser }) {
+function AuthenticatedApp({ currentMember, setCurrentMember }) {
   const history = useHistory()
   
   const handleLogout = () => {
@@ -14,7 +14,7 @@ function AuthenticatedApp({ currentUser, setCurrentUser }) {
     })
       .then(res => {
         if (res.ok) {
-          setCurrentUser(null)
+          setCurrentMember(null)
           history.push('/')
         }
       })
@@ -23,8 +23,8 @@ function AuthenticatedApp({ currentUser, setCurrentUser }) {
   return (
     <div className="App max-w-5xl">
       <Navbar
-        setCurrentUser={setCurrentUser}
-        currentUser={currentUser}
+        setCurrentMember={setCurrentMember}
+        currentMember={currentMember}
         handleLogout={handleLogout}
       />
       <Switch>

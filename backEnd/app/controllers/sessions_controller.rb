@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
             session[:member_id] = member.id
             render json: member, status: :ok
         else
-            render json: { errors: 'Invalid credentials' }, status: :unauthorized
+            render json: { errors: 'Invalid credentials' }, status: :unauthorized #401
         end
     end
 
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
         if current_member
             session.clear
         else
-            render json: { errors: 'No active session'}, status: :unauthorized
+            render json: { errors: 'No active session'}, status: :unauthorized #401
         end
     end
 

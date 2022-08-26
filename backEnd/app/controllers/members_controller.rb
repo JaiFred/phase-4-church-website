@@ -12,7 +12,7 @@ class MembersController < ApplicationController
         if current_member
             render json: current_member, status: :ok
         else
-            render json: { errors: "No Active Sessions" }, status: :unauthorized
+            render json: { errors: "No Active Sessions" }, status: :unauthorized #401
         end
     end
 
@@ -23,7 +23,7 @@ class MembersController < ApplicationController
         render json: member, status: :created
     end
 
-    
+
 
     private
 
@@ -33,7 +33,7 @@ class MembersController < ApplicationController
     # t.string :email
 
     def member_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :email, :password, :password_confirmation)
     end
 
 end

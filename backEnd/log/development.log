@@ -1839,3 +1839,560 @@ NoMethodError (undefined method `password_digest=' for #<Member:0x00007ff1f7f4da
 Did you mean?  password=):
   
 app/controllers/members_controller.rb:21:in `create'
+Started GET "/me" for ::1 at 2022-08-25 17:00:13 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 22ms (Views: 1.3ms | ActiveRecord: 5.8ms | Allocations: 2885)
+
+
+Started GET "/me" for ::1 at 2022-08-25 17:00:13 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 797)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 17:03:56 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :member[0m
+Completed 500 Internal Server Error in 285ms (ActiveRecord: 10.0ms | Allocations: 5262)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<Member:0x00007ff1fbba1e78>
+Did you mean?  password=):
+  
+app/controllers/members_controller.rb:21:in `create'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (65.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (38.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (211.4ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (116.9ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1087325618115650655)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdmins (20220824184905)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.8ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "name" character varying, "username" character varying, "password" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220824184905"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMembers (20220824185640)
+  [1m[36mTRANSACTION (40.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220824185640"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBulletins (20220824185820)
+  [1m[36mTRANSACTION (44.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.1ms)[0m  [1m[35mCREATE TABLE "bulletins" ("id" bigserial primary key, "name" character varying, "date" character varying, "activity" character varying, "member_id" integer, "admin_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220824185820"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-25 21:09:32.238567"], ["updated_at", "2022-08-25 21:09:32.238567"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  [1m[36mBulletin Load (40.3ms)[0m  [1m[34mSELECT "bulletins".* FROM "bulletins"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Create (1.2ms)[0m  [1m[32mINSERT INTO "admins" ("name", "username", "password", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Charles"], ["username", "CharlesDW"], ["password", "123Admin"], ["email", "CharlesDW@gmail.com"], ["created_at", "2022-08-25 21:09:40.551431"], ["updated_at", "2022-08-25 21:09:40.551431"]]
+  [1m[36mTRANSACTION (41.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bill"], ["username", "BillTT"], ["password_digest", "$2a$12$ZPln/DWOxnhvKL2kC0R50eh5qVCjN5vgqL.p3IMrf60D01qF9bdpS"], ["email", "BillTurner@gmail.com"], ["created_at", "2022-08-25 21:09:40.857629"], ["updated_at", "2022-08-25 21:09:40.857629"]]
+  [1m[36mTRANSACTION (40.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "KellyCrane"], ["LIMIT", 1]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Kelly"], ["username", "KellyCrane"], ["password_digest", "$2a$12$uXyVidB4ZSLNwIXPTUMIFOUeacf99loRkPoOVD9AMAkOMZtoLX1bi"], ["email", "KellyCrane@gmail.com"], ["created_at", "2022-08-25 21:09:41.137175"], ["updated_at", "2022-08-25 21:09:41.137175"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "VanessAdler"], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Vanessa"], ["username", "VanessAdler"], ["password_digest", "$2a$12$V.p/6G97VwqpnXPZmewE7uWsqOasB/sPh19iqi16vxjOzkAiI6XYK"], ["email", "VanessaAdler@gmail.com"], ["created_at", "2022-08-25 21:09:41.370307"], ["updated_at", "2022-08-25 21:09:41.370307"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "Frank"], ["LIMIT", 1]]
+  [1m[36mMember Create (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Francis"], ["username", "Frank"], ["password_digest", "$2a$12$Y1khHTJXgO1dO2Bb.CN7.ugoxNP0TmYhgOCqbC8NXI4BHClUG9oG2"], ["email", "FrankTizic@gmail.com"], ["created_at", "2022-08-25 21:09:41.612654"], ["updated_at", "2022-08-25 21:09:41.612654"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBulletin Create (0.9ms)[0m  [1m[32mINSERT INTO "bulletins" ("name", "date", "activity", "member_id", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Morning Prayer"], ["date", "8/30/2022"], ["activity", "Regular Service"], ["member_id", 1], ["admin_id", 1], ["created_at", "2022-08-25 21:09:41.644550"], ["updated_at", "2022-08-25 21:09:41.644550"]]
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBulletin Create (0.6ms)[0m  [1m[32mINSERT INTO "bulletins" ("name", "date", "activity", "member_id", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Community Gardening"], ["date", "9/1/2022"], ["activity", "Community Service"], ["member_id", 2], ["admin_id", 1], ["created_at", "2022-08-25 21:09:41.695468"], ["updated_at", "2022-08-25 21:09:41.695468"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBulletin Create (0.5ms)[0m  [1m[32mINSERT INTO "bulletins" ("name", "date", "activity", "member_id", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Community Jungle Gym Fundraiser"], ["date", "Ongoing"], ["activity", "Community Service"], ["member_id", 3], ["admin_id", 1], ["created_at", "2022-08-25 21:09:41.704240"], ["updated_at", "2022-08-25 21:09:41.704240"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBulletin Create (0.3ms)[0m  [1m[32mINSERT INTO "bulletins" ("name", "date", "activity", "member_id", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Late Service"], ["date", "8/26/2022"], ["activity", "Regular Service"], ["member_id", 4], ["admin_id", 1], ["created_at", "2022-08-25 21:09:41.710813"], ["updated_at", "2022-08-25 21:09:41.710813"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBulletin Create (0.4ms)[0m  [1m[32mINSERT INTO "bulletins" ("name", "date", "activity", "member_id", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Weekend Potluck"], ["date", "9/16/2022"], ["activity", "Outside Service"], ["member_id", 3], ["admin_id", 1], ["created_at", "2022-08-25 21:09:41.718034"], ["updated_at", "2022-08-25 21:09:41.718034"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/me" for ::1 at 2022-08-25 17:09:54 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 42ms (Views: 4.8ms | ActiveRecord: 2.9ms | Allocations: 4260)
+
+
+Started GET "/me" for ::1 at 2022-08-25 17:09:54 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 54ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 797)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 17:10:05 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Create (1.9ms)[0m  [1m[32mINSERT INTO "members" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "jaivon"], ["password_digest", "$2a$12$rfaXMBtiU0Mgmg5aSxEFlekDb1fe7yDRD39QR9IzRh.TYjF082Fsa"], ["created_at", "2022-08-25 21:10:05.561556"], ["updated_at", "2022-08-25 21:10:05.561556"]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (42.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+[active_model_serializers] Rendered MemberSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 201 Created in 371ms (Views: 22.5ms | ActiveRecord: 50.8ms | Allocations: 9916)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 20:22:37 -0400
+  [1m[35m (21.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 247ms (ActiveRecord: 1.6ms | Allocations: 7750)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken):
+  
+app/controllers/members_controller.rb:21:in `create'
+Started GET "/me" for ::1 at 2022-08-25 20:23:09 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 14ms (Views: 1.7ms | ActiveRecord: 1.5ms | Allocations: 1041)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:23:09 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 797)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 20:23:18 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 244ms (ActiveRecord: 0.6ms | Allocations: 2425)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken):
+  
+app/controllers/members_controller.rb:21:in `create'
+Started POST "/signup" for ::1 at 2022-08-25 20:24:45 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 230ms (ActiveRecord: 2.0ms | Allocations: 2420)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken):
+  
+app/controllers/members_controller.rb:21:in `create'
+Started GET "/me" for ::1 at 2022-08-25 20:25:05 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 798)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:25:05 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:25:17 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:25:17 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+  [1m[36mMember Load (2.8ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/me" for ::1 at 2022-08-25 20:34:51 -0400
+  [1m[35m (41.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 18ms (Views: 2.0ms | ActiveRecord: 1.9ms | Allocations: 4260)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:34:52 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:34:59 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 818)
+
+
+Started GET "/me" for ::1 at 2022-08-25 20:34:59 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 818)
+
+
+Started POST "/login" for ::1 at 2022-08-25 20:35:06 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "session"=>{"username"=>"jaivon", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 830)
+
+
+Started POST "/login" for ::1 at 2022-08-25 21:00:11 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "session"=>{"username"=>"jaivon", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 221ms (Views: 1.3ms | ActiveRecord: 135.2ms | Allocations: 3995)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:03:41 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 798)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:03:41 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:04:37 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (4.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 15ms (Views: 0.4ms | ActiveRecord: 4.5ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:04:37 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (66.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 87ms (Views: 0.6ms | ActiveRecord: 66.1ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:04:39 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:04:39 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.57ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 15ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:05:03 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 221ms (Views: 1.8ms | ActiveRecord: 205.5ms | Allocations: 2863)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:05:04 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:05:09 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:05:09 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:05:12 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.6ms | ActiveRecord: 1.4ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:05:12 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 32ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 797)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 21:05:28 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (4.2ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 277ms (ActiveRecord: 50.0ms | Allocations: 9358)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken):
+  
+app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/me" for ::1 at 2022-08-25 21:08:16 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 796)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:08:16 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.8ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 0.6ms | ActiveRecord: 1.8ms | Allocations: 797)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 21:08:29 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "email"=>"@email", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon", "email"=>"@email"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 232ms (ActiveRecord: 1.0ms | Allocations: 2438)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken):
+  
+app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/me" for ::1 at 2022-08-25 21:09:15 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 33ms (Views: 5.6ms | ActiveRecord: 1.5ms | Allocations: 4260)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:09:15 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 797)
+
+
+Started POST "/signup" for ::1 at 2022-08-25 21:09:27 -0400
+Processing by MembersController#create as */*
+  Parameters: {"username"=>"jaivon", "email"=>"@email", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "member"=>{"username"=>"jaivon", "email"=>"@email"}}
+[31mUnpermitted parameter: :member[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "jaivon"], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 273ms (ActiveRecord: 4.4ms | Allocations: 9381)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken):
+  
+app/controllers/members_controller.rb:21:in `create'
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/me" for ::1 at 2022-08-25 21:24:58 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 193ms (Views: 1.2ms | ActiveRecord: 12.5ms | Allocations: 5803)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:24:58 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 797)
+
+
+Started POST "/login" for ::1 at 2022-08-25 21:28:26 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "session"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 830)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:28:29 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 47ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 797)
+
+
+Started GET "/me" for ::1 at 2022-08-25 21:28:29 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 17ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 797)
+
+

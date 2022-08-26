@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect, useHistory, Link } from 'react-router-dom'
 
-function Login({ setCurrentUser }) {
+function Login({ setCurrentMember }) {
   const history = useHistory()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -18,8 +18,8 @@ function Login({ setCurrentUser }) {
     })
       .then(res => {
         if (res.ok) {
-          res.json().then(user => {
-            setCurrentUser(user)
+          res.json().then(member => {
+            setCurrentMember(member)
             history.push('http://localhost:3000/groups')
           })
         } else {

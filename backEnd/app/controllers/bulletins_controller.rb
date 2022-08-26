@@ -20,7 +20,7 @@ class BulletinsController < ApplicationController
 
     def update 
         bulletin = Bulletin.find_by(params[:id])
-        session[:member_id] = member.id || session[:admin_id] = admin.id
+        session[:admin_id] = admin.id
         user.save
     end
 
