@@ -33,7 +33,7 @@ class MembersController < ApplicationController
     # t.string :email
 
     def member_params
-        params.permit(:username, :email, :password, :password_confirmation)
+        params.permit(:username, :email, :password, :password_confirmation, :member)
     end
 
 end

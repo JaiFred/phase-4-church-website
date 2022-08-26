@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/signup", to: "members#create"
   post "/adminsignup", to: "admins#create"
   post "/login", to: "sessions#create"
+  delete "/adminlogout", to: "sessions#destroy_admin"
   delete "/logout", to: "sessions#destroy"
 
   # Routing logic: fallback requests for React Router.

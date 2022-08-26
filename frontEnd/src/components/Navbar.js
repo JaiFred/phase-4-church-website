@@ -47,7 +47,6 @@ function Navbar({setCurrentUser, currentUser, handleLogout}) {
       </div>
       <div className="flex flex-col">
         <button className="text-right" onClick={() => setNavbarOpen(!navbarOpen)}>
-          {profilePic()}
         </button>
         <div className="relative w-52">
           {/* <div className={`flex flex-col w-52 bg-white shadow overflow-hidden absolute space-y-3 text-lg ${navbarOpen ? 'p-4 max-h-screen' : 'p-0 max-h-0'}`}>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :authenticate_member
 
     # POST '/login'
     def create
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
         end
     end
 
-     # POST '/login'
+    # POST '/login'
     def create_admin
         admin = Admin.find_by(username: params[:username])
         if member&.authenticate(params[:password])
@@ -29,11 +30,12 @@ class SessionsController < ApplicationController
         end
     end
 
+    # DELETE '/adminlogout'
     def destroy_admin
         if current_admin
             session.clear
         else
-            render json: { errors: 'No acti'}
+            render json: { errors: 'No active session'}, status: :unauthorized #401
         end
     end
 end

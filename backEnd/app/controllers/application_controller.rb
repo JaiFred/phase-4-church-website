@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate_member
   include ActionController::Cookies
+  rescue_from ActiveRecord::RecordInvalid, with: :render_validation_errors
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+  
+  before_action :authenticate_member
+  
 
   # goals 
   # only Admin can access bulletin
@@ -22,14 +26,16 @@ class ApplicationController < ActionController::API
   # 
 
 # later on this will return the user that's currently logged in
+ 
+private
+
   def current_member
     @current_member ||= Member.find_by_id(session[:member_id])
   end
 
-  private
-
   def authenticate_member
-    render json: {errors: {Member: "not authorized"}}, status: :unauthorized unless current_member #401
+    return if current_member
+    render json: {errors: {Member: "not authorized"}}, status: :unauthorized #401
   end
 
   def render_uprocessable_entity(invalid)

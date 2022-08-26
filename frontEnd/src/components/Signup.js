@@ -27,7 +27,7 @@ function Signup({ setCurrentMember }) {
         if (res.ok) {
           res.json().then(member => {
             setCurrentMember(member)
-            history.push('/groups')
+            history.push('/me')
           })
         } else {
           res.json().then(({ error }) => {
