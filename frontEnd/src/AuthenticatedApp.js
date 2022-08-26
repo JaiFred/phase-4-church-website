@@ -1,5 +1,5 @@
 import './App.css';
-import GroupsContainer from './components/GroupsContainer'
+import BulletinContainer from './components/BulletinContainer'
 import EventsContainer from './components/EventsContainer'
 import Navbar from './components/Navbar'
 import { Switch, Route, Redirect, useHistory } from 'react-router-dom'
@@ -28,13 +28,11 @@ function AuthenticatedApp({ currentMember, setCurrentMember }) {
         handleLogout={handleLogout}
       />
       <Switch>
-        <Route path="/groups">
-          <GroupsContainer />
+        <Route path="/bulletin">
+          <BulletinContainer />
         </Route>
-        <Route path="/events">
-          <EventsContainer />
-        </Route>
-        <Redirect to="/groups" />
+        
+        <Redirect to="/bulletin" />
       </Switch>
     </div>
   );
