@@ -4752,3 +4752,12 @@ Processing by SessionsController#create as */*
 Completed 401 Unauthorized in 16ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 2538)
 
 
+Started GET "/me" for ::1 at 2022-08-29 15:00:28 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 818)
+
+
