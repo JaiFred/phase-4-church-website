@@ -25,6 +25,7 @@ function LoginForm({ onLogin }) {
       }
     });
   }
+  console.log(errors)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -56,10 +57,12 @@ function LoginForm({ onLogin }) {
       <FormField>
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
-        ))}
+        ))} 
       </FormField>
     </form>
   );
 }
+
+//console.log(errors) - this results in a string of errors we need to know if we want to produce an array of errors or a single error
 
 export default LoginForm;

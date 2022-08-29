@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import BulletinContainer from './BulletinContainer';
 
 import { useEffect } from 'react'
-import { Switch, Route, Redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function AuthenticatedApp({ currentMember, setCurrentMember }){
     const navigate = useNavigate()

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import Login from './Login'
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
 
 import { BrowserRouter, Routes, Route, BrowserRouter as Router } from 'react-router-dom'
-import Login from './Login'
+import React, { useState, useEffect } from 'react'
+
 
 function App() {
   const [currentMember, setCurrentMember] = useState(null)
