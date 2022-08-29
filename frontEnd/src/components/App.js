@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
-import { BrowserRouter as Router } from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+import Login from './Login'
 
 function App() {
   const [currentMember, setCurrentMember] = useState(null)
@@ -21,21 +23,16 @@ function App() {
       })
   }, [])
 
-  if(!authChecked) { return <div></div>}
+  if(!authChecked) { return <Login onLogin={setCurrentMember} />}
   return (
+    <BrowserRouter> 
     <Router>
-      {currentMember ? (
-          <AuthenticatedApp
-            setCurrentMember={setCurrentMember}
-            currentMember={currentMember}
-          />
-        ) : (
-          <UnauthenticatedApp
-            setCurrentMember={setCurrentMember}
-          />
-        )
-      }
+    <Route path="/" element={<App/>} />
+      
     </Router>
+    
+    </BrowserRouter>
+   
   )
 }
 

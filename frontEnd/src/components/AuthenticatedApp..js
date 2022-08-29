@@ -1,7 +1,0 @@
-
-function AuthenticationApp(){
-
-    
-    return()
-
-}
