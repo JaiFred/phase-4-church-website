@@ -4612,3 +4612,143 @@ Started GET "/favicon.ico" for ::1 at 2022-08-29 14:20:46 -0400
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
+Started GET "/me" for ::1 at 2022-08-29 14:50:00 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 27ms (Views: 2.1ms | ActiveRecord: 2.8ms | Allocations: 4260)
+
+
+Started POST "/login" for ::1 at 2022-08-29 14:50:22 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"BillTT", "password"=>"[FILTERED]", "session"=>{"username"=>"BillTT", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (43.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 65.6ms | Allocations: 5298)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (124.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (67.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (40.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (281.5ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (142.5ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1087325618115650655)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdmins (20220824184905)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (122.8ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220824184905"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMembers (20220824185640)
+  [1m[36mTRANSACTION (40.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220824185640"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBulletins (20220827021000)
+  [1m[36mTRANSACTION (41.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "bulletins" ("id" bigserial primary key, "title" character varying, "activity" character varying, "starts" timestamp, "ends" timestamp, "admin_id" bigint NOT NULL, "member_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_5c49573262"
+FOREIGN KEY ("admin_id")
+  REFERENCES "admins" ("id")
+, CONSTRAINT "fk_rails_9448c7a72f"
+FOREIGN KEY ("member_id")
+  REFERENCES "members" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_bulletins_on_admin_id" ON "bulletins" ("admin_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_bulletins_on_member_id" ON "bulletins" ("member_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220827021000"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (25.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-29 18:55:33.502208"], ["updated_at", "2022-08-29 18:55:33.502208"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  [1m[36mBulletin Load (0.6ms)[0m  [1m[34mSELECT "bulletins".* FROM "bulletins"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Create (1.7ms)[0m  [1m[32mINSERT INTO "admins" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Charles"], ["username", "CharlesDW"], ["password_digest", "123Admin"], ["email", "CharlesDW@gmail.com"], ["created_at", "2022-08-29 18:56:41.760460"], ["updated_at", "2022-08-29 18:56:41.760460"]]
+  [1m[36mTRANSACTION (39.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  [1m[36mMember Exists? (51.1ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."password" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Destroy (8.9ms)[0m  [1m[31mDELETE FROM "admins" WHERE "admins"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  [1m[36mBulletin Load (0.6ms)[0m  [1m[34mSELECT "bulletins".* FROM "bulletins"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Create (0.7ms)[0m  [1m[32mINSERT INTO "admins" ("name", "username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Charles"], ["username", "CharlesDW"], ["password_digest", "123Admin"], ["email", "CharlesDW@gmail.com"], ["created_at", "2022-08-29 18:58:45.207899"], ["updated_at", "2022-08-29 18:58:45.207899"]]
+  [1m[36mTRANSACTION (39.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "KellyCrane"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "VanessAdler"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "Frank"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/me" for ::1 at 2022-08-29 14:59:28 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 21ms (Views: 1.8ms | ActiveRecord: 2.5ms | Allocations: 4272)
+
+
+Started POST "/login" for ::1 at 2022-08-29 14:59:33 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"BillTT", "password"=>"[FILTERED]", "session"=>{"username"=>"BillTT", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 16ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 2538)
+
+
