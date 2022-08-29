@@ -27,7 +27,19 @@ function App() {
   return (
     <BrowserRouter> 
       <Router>
-        <Route path="/" element={<App/>} />
+        { currentMember ?(
+        
+        <AuthenticatedApp
+            setCurrentMember={setCurrentMember}
+            currentMember={currentMember}
+            />
+          
+          ):(
+        <UnauthenticatedApp
+            setCurrentMember={setCurrentMember}
+            />
+          )
+        }
       </Router>
     </BrowserRouter>
    
