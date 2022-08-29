@@ -26,11 +26,9 @@ function App() {
   if(!authChecked) { return <Login onLogin={setCurrentMember} />}
   return (
     <BrowserRouter> 
-    <Router>
-    <Route path="/" element={<App/>} />
-      
-    </Router>
-    
+      <Router>
+        <Route path="/" element={<App/>} />
+      </Router>
     </BrowserRouter>
    
   )
