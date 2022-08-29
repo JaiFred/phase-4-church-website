@@ -1,3 +1,5 @@
 class BulletinSerializer < ActiveModel::Serializer
-  attributes :id, :name, :date, :activity, :member_id, :admin_id
+  attributes :id, :title, :activity, :starts, :ends
+  has_one :admin
+  has_one :member
 end

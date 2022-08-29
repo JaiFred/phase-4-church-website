@@ -38,12 +38,15 @@ m4 = Member.create(name: "Francis", username: "Frank", password_digest: "fourth"
 
 puts '🌱 seeding bulletins 📆'
 
-# t.string :name
-# t.string :date
+# t.string :title
 # t.string :activity
+# t.datetime :starts
+# t.datetime :ends
+# t.belongs_to :admin, null: false, foreign_key: true
+# t.belongs_to :member, null: false, foreign_key: true
 
-b1 = Bulletin.create(name: "Morning Prayer", date: "8/30/2022", activity: "Regular Service" , member_id: m1.id, admin_id: ad1.id)
-b2 = Bulletin.create(name: "Community Gardening", date: "9/1/2022", activity: "Community Service", member_id: m2.id, admin_id: ad1.id)
-b3 = Bulletin.create(name: "Community Jungle Gym Fundraiser", date: "Ongoing", activity: "Community Service", member_id: m3.id, admin_id: ad1.id)
-b4 = Bulletin.create(name: "Late Service", date: "8/26/2022", activity: "Regular Service", member_id: m4.id, admin_id: ad1.id)
-b5 = Bulletin.create(name: "Weekend Potluck", date: "9/16/2022", activity: "Outside Service", member_id: m3.id, admin_id: ad1.id)
+b1 = Bulletin.create(title: "Morning Prayer", activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: m1.id, admin_id: ad1.id)
+b2 = Bulletin.create(title: "Community Gardening", activity: "Community Service", starts: "9/1/2022", ends: "9/1/2022", member_id: m2.id, admin_id: ad1.id)
+b3 = Bulletin.create(title: "Community Jungle Gym Fundraiser", activity: "Community Service", starts: "2/14/2022", ends: "10/25/2022", member_id: m3.id, admin_id: ad1.id)
+b4 = Bulletin.create(title: "Late Service", activity: "Regular Service", starts: "8/26/2022", ends: "8/26/2022", member_id: m4.id, admin_id: ad1.id)
+b5 = Bulletin.create(title: "Weekend Potluck", activity: "Outside Service", starts: "9/16/2022", ends: "9/16/2022", member_id: m3.id, admin_id: ad1.id)
