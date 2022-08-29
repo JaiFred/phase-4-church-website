@@ -18,7 +18,7 @@ function App() {
             setAuthChecked(true)
           })
         } else {
-          setAuthChecked(true)
+          setAuthChecked(false)
         }
       })
   }, [])
