@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './NavBar';
-import 
+
 
 import BulletinContainer from './BulletinContainer';
 
@@ -25,7 +25,9 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
     
     return(
         <div>
-            Hello
+         
+            <NavBar />
+            <BulletinContainer />
         </div>
     )
 

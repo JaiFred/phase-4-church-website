@@ -1,10 +1,11 @@
 import Login from './Login'
 
 
-function UnauthenticatedApp(){
+function UnauthenticatedApp({setCurrentMember}){
     return(
         <div>
-            <Login></Login>
+            <Login setCurrentMember={setCurrentMember}></Login>
+            
         </div>
     )
 }

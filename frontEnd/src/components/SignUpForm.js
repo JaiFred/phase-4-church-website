@@ -16,7 +16,7 @@ function SignUpForm( setCurrentMember ){
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        fetch('https://localhost:3000/signup', {
+        fetch('http://localhost:3000/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

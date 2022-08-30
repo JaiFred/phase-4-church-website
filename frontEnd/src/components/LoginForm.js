@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Error, Input, FormField, Label } from "./styles";
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, setCurrentMember }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -19,7 +19,8 @@ function LoginForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((member) => onLogin(member));
+        r.json().then((member) => setCurrentMember(member));
+        console.log("signed in!")
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { Button } from "./styles";
 
-function Login({ onLogin }) {
+function Login({ onLogin, setCurrentMember }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -13,7 +13,7 @@ function Login({ onLogin }) {
         <Logo>Richmond Church</Logo>
         {showLogin ? (
           <>
-            <LoginForm onLogin={onLogin} />
+            <LoginForm onLogin={onLogin} setCurrentMember={setCurrentMember} />
             <Divider />
             <p>
               Don't have an account? &nbsp;
