@@ -21,7 +21,7 @@ puts '🌱 seeding admins 👮‍♂️'
 # t.integer :bulletin_id
 
 
-ad1 = Admin.create(name: "Charles", username: "CharlesDW", password_digest: "123Admin", email: "CharlesDW@gmail.com")
+ad1 = Admin.create(name: "Charles", username: "CharlesDW", password: "123Admin", email: "CharlesDW@gmail.com")
 # ad2 = Admin.create(name: "Martha", username: "MarthaWithers", password: "321Admin", email: "MarthaWithers@gmail.com")
 
 puts '🌱 seeding members 👨‍👩‍👦‍👦👨‍👩‍👧‍👧👨‍👩‍👧‍👦'
@@ -31,10 +31,10 @@ puts '🌱 seeding members 👨‍👩‍👦‍👦👨‍👩‍👧‍👧�
 # t.string :password
 # t.string :email
 
-m1 = Member.create(name: "Bill", username: "BillTT", password_digest: "first", email: "BillTurner@gmail.com")
-m2 = Member.create(name: "Kelly", username: "KellyCrane", password_digest: "second", email: "KellyCrane@gmail.com")
-m3 = Member.create(name: "Vanessa", username: "VanessAdler", password_digest: "third", email: "VanessaAdler@gmail.com")
-m4 = Member.create(name: "Francis", username: "Frank", password_digest: "fourth", email: "FrankTizic@gmail.com")
+m1 = Member.create(name: "Bill", username: "BillTT", password: "first", email: "BillTurner@gmail.com")
+m2 = Member.create(name: "Kelly", username: "KellyCrane", password: "second", email: "KellyCrane@gmail.com")
+m3 = Member.create(name: "Vanessa", username: "VanessAdler", password: "third", email: "VanessaAdler@gmail.com")
+m4 = Member.create(name: "Francis", username: "Frank", password: "fourth", email: "FrankTizic@gmail.com")
 
 puts '🌱 seeding bulletins 📆'
 
@@ -45,7 +45,7 @@ puts '🌱 seeding bulletins 📆'
 # t.belongs_to :admin, null: false, foreign_key: true
 # t.belongs_to :member, null: false, foreign_key: true
 
-b1 = Bulletin.create(title: "Morning Prayer", activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: m1.id, admin_id: ad1.id)
+b1 = Bulletin.create(title: "Morning Prayer", activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: Member.first.id, admin_id: Admin.first.id)
 b2 = Bulletin.create(title: "Community Gardening", activity: "Community Service", starts: "9/1/2022", ends: "9/1/2022", member_id: m2.id, admin_id: ad1.id)
 b3 = Bulletin.create(title: "Community Jungle Gym Fundraiser", activity: "Community Service", starts: "2/14/2022", ends: "10/25/2022", member_id: m3.id, admin_id: ad1.id)
 b4 = Bulletin.create(title: "Late Service", activity: "Regular Service", starts: "8/26/2022", ends: "8/26/2022", member_id: m4.id, admin_id: ad1.id)

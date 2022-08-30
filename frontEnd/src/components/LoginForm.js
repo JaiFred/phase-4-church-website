@@ -7,7 +7,7 @@ function LoginForm({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e) {
+  function HandleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
     fetch("http://localhost:3000/login", {
@@ -19,17 +19,17 @@ function LoginForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((member) => onLogin(member));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
   }
-  console.log(errors)
+  console.log({errors})
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormField>
+    <form onSubmit={HandleSubmit}>
+      <div>
         <Label htmlFor="username">Username</Label>
         <Input
           type="text"
@@ -38,7 +38,7 @@ function LoginForm({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </FormField>
+      </div>
       <FormField>
         <Label htmlFor="password">Password</Label>
         <Input

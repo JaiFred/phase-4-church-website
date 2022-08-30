@@ -1,8 +1,6 @@
-import Login from './Login'
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
 
-import { BrowserRouter, Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 
 
@@ -19,16 +17,15 @@ function App() {
             setAuthChecked(true)
           })
         } else {
-          setAuthChecked(false)
+          setAuthChecked(true)
         }
       })
   }, [])
 
-  if(!authChecked) { return <Login onLogin={setCurrentMember} />}
+  if(!authChecked) { return <div></div>} //<Login onLogin={setCurrentMember} />}
   return (
-    <BrowserRouter> 
-      <Router>
-        { currentMember ?(
+      <div>
+        { currentMember ? (
         
         <AuthenticatedApp
             setCurrentMember={setCurrentMember}
@@ -41,8 +38,7 @@ function App() {
             />
           )
         }
-      </Router>
-    </BrowserRouter>
+      </div>
    
   )
 }

@@ -1,5 +1,7 @@
 import './App.css';
 import NavBar from './NavBar';
+import 
+
 import BulletinContainer from './BulletinContainer';
 
 import { useEffect } from 'react'
@@ -23,7 +25,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
     
     return(
         <div>
-            
+            Hello
         </div>
     )
 
