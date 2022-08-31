@@ -5558,3 +5558,39 @@ Processing by SessionsController#create as */*
 Completed 200 OK in 251ms (Views: 6.7ms | ActiveRecord: 0.5ms | Allocations: 786)
 
 
+Started GET "/me" for ::1 at 2022-08-31 13:02:09 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.48ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 312ms (Views: 3.8ms | ActiveRecord: 201.5ms | Allocations: 3922)
+
+
+Started POST "/login" for ::1 at 2022-08-31 13:02:26 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"BillTT", "password"=>"[FILTERED]", "session"=>{"username"=>"BillTT", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered MemberSerializer with ActiveModelSerializers::Adapter::Attributes (0.77ms)
+Completed 200 OK in 252ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 789)
+
+
+Started GET "/me" for ::1 at 2022-08-31 13:53:23 -0400
+Processing by MembersController#show as */*
+  [1m[36mMember Load (1.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_member'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.72ms)
+Filter chain halted as :authenticate_member rendered or redirected
+Completed 401 Unauthorized in 242ms (Views: 7.8ms | ActiveRecord: 87.3ms | Allocations: 3923)
+
+
+Started POST "/login" for ::1 at 2022-08-31 13:53:41 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"BillTT", "password"=>"[FILTERED]", "session"=>{"username"=>"BillTT", "password"=>"[FILTERED]"}}
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."username" = $1 LIMIT $2[0m  [["username", "BillTT"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered MemberSerializer with ActiveModelSerializers::Adapter::Attributes (0.99ms)
+Completed 200 OK in 263ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 790)
+
+

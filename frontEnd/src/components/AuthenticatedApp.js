@@ -1,12 +1,10 @@
 import './App.css';
 import NavBar from './NavBar';
-import react, { useState } from 'react';
-
+import react, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 import BulletinContainer from './BulletinContainer';
 
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 function AuthenticatedApp({ currentMember, setCurrentMember }){
 
@@ -24,14 +22,14 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
       .then((bulletins) => setShowBulletins(bulletins))
     },[])
 
-    // function handleDeleteBulletin(deletedID) {
-    //   // console.log(deletedID)
-    //   const updatedBulletinArray = bulletins.filter(
-    //     (bulletins) => bulletin.id !== deletedID
+    function handleDeleteBulletin(deletedID) {
+      // console.log(deletedID)
+      const updatedBulletinArray = showBulletins.filter(
+        (bulletin) => bulletin.id !== deletedID
         
-    //   );
-    //   setShowBulletins(updatedBulletinsArray);
-    // }
+      );
+      setShowBulletins(updatedBulletinArray);
+    }
 
 
     // console log to test whether we're inside member session
@@ -53,7 +51,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
     return(
       <div>
         <NavBar />
-        <BulletinContainer showBulletins={showBulletins} setShowBulletins={setShowBulletins}/>
+        <BulletinContainer showBulletins={showBulletins} setShowBulletins={setShowBulletins} handleDeleteBulletin={handleDeleteBulletin}/>
       </div>
     )
 

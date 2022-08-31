@@ -41,8 +41,9 @@ function NavBar({setCurrentUser, currentUser, handleLogout}){
     return (
       <nav className="flex items-center justify-between text-2xl border-black border-b-2 pb-2 mb-4">
         <div className="">
-          <NavLink className="pr-6 py-6" to="/groups">Groups</NavLink>
-          <NavLink className="pr-2 py-6" to="/events">Events</NavLink>
+          <NavLink className="pr-6 py-6" to="/home">Home</NavLink>
+          <NavLink className="pr-2 py-6" to="/bulletins">Bulletin</NavLink>
+          <NavLink className="pr-2 py-6" to="/about">About</NavLink>
         </div>
         
       </nav>
