@@ -5,6 +5,7 @@ import SignUpForm from "../components/SignUpForm";
 import { Button } from "./styles";
 
 function Login({ onLogin, setCurrentMember }) {
+  
   const [showLogin, setShowLogin] = useState(true);
 
   return (

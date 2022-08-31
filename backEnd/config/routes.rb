@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :admins
   
   get "/me", to: "members#show"
+  get "/bulletins", to: "bulletins#index"
   get "/admin", to: "admins#show"
   post "/signup", to: "members#create"
   post "/adminsignup", to: "admins#create"
