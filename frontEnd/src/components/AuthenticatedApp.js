@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function AuthenticatedApp({ currentMember, setCurrentMember }){
+  
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -24,11 +25,10 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
       }
     
     return(
-        <div>
-         
-            <NavBar />
-            <BulletinContainer />
-        </div>
+      <div>
+        <NavBar />
+        <BulletinContainer />
+      </div>
     )
 
 }

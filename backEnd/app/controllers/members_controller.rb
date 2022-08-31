@@ -23,8 +23,6 @@ class MembersController < ApplicationController
         render json: member, status: :created
     end
 
-
-
     private
 
     # t.string :name
