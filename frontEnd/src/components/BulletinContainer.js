@@ -34,19 +34,32 @@ function BulletinContainer({ showBulletins, setShowBulletins }){
         <div className="bulletin-container">
             <div className="bulletin-list">
                 <div className="first-bulletin">
-                    <p>title: "Morning Prayer", activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: Member.first.id, admin_id: Admin.first.id"</p>
+                    <p>title: "Morning Prayer"</p>
+                    <p>activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: Member.first.id, admin_id: Admin.first.id"</p>
                 </div>
                 <div className="second-bulletin">
-                    <p>title: "Community Gardening", activity: "Community Service", starts: "9/1/2022", ends: "9/1/2022", member_id: m2.id, admin_id: ad1.id</p>
+                    <p>title: "Community Gardening"</p>
+                    <p>activity: "Community Service"</p>
+                    <p>starts: "9/1/2022", ends: "9/1/2022"</p>
+                    <p>KellyCrane</p>
                 </div>
                 <div className="third-bulletin">
-                    <p>title: "Community Jungle Gym Fundraiser", activity: "Community Service", starts: "2/14/2022", ends: "10/25/2022", member_id: m3.id, admin_id: ad1.id</p>
+                    <p>Community Jungle Gym Fundraiser</p>
+                    <p>activity: "Community Service"</p>
+                    <p>from 2/14/2022 to 10/25/2022</p>
+                    <p>posted by VanessAdler</p>
                 </div>
                 <div className="fourth-bulletin">
-                    <p>title: "Late Service", activity: "Regular Service", starts: "8/26/2022", ends: "8/26/2022", member_id: m4.id, admin_id: ad1.id</p>
+                    <p>Late Service</p>
+                    <p>activity: "Regular Service"</p>
+                    <p>from 8/26/2022 to 8/26/2022</p>
+                    <p>posted by Frank</p>
                 </div>
                 <div className="fifth-bulletin">
-                    <p>title: "Weekend Potluck", activity: "Outside Service", starts: "9/16/2022", ends: "9/16/2022", member_id: m3.id, admin_id: ad1.id</p>
+                    <p>Weekend Potluck</p>
+                    <p>activity: "Outside Service"</p>
+                    <p>from 9/16/2022 to 9/16/2022</p>
+                    <p>posted by VanessAdler</p>
                 </div>
             </div>
         </div>

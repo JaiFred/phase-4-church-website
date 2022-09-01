@@ -7,6 +7,8 @@ function LoginForm({ onLogin, setCurrentMember }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  
+
   function HandleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -19,14 +21,18 @@ function LoginForm({ onLogin, setCurrentMember }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((member) => setCurrentMember(member));
-        console.log("signed in!")
+        r.json().then((member) => setCurrentMember(member.id));
       } else {
         r.json().then((err) => setErrors(err.errors));
+        errorSpace = <Error key={errors}>{errors}</Error>
+        console.log(errorSpace)
+        errorSpace.forceUpdate()
       }
     });
   }
   console.log({errors})
+
+  let errorSpace = <div></div>;
 
   return (
     <form onSubmit={HandleSubmit}>
@@ -56,9 +62,7 @@ function LoginForm({ onLogin, setCurrentMember }) {
         </Button>
       </FormField>
       <FormField>
-        {errors.map((err) => (
-          <Error key={err}>{err}</Error>
-        ))} 
+        {errorSpace}
       </FormField>
     </form>
   );

@@ -1,14 +1,18 @@
 import './App.css';
 import NavBar from './NavBar';
 import react, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Route, Routes } from 'react-router-dom'
 
 import BulletinContainer from './BulletinContainer';
+import Homepage from './Homepage';
+import AboutPage from './AboutPage';
 
 
 function AuthenticatedApp({ currentMember, setCurrentMember }){
 
   const [showBulletins, setShowBulletins] = useState ([])
+
+  console.log(setCurrentMember)
   
 
     const navigate = useNavigate()
@@ -35,25 +39,33 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
     // console log to test whether we're inside member session
     console.log("made it")  
 
-    const handleLogout = () => {
-        fetch(`/logout`, {
-          method: 'DELETE',
-          credentials: 'include'
-        })
-        .then(res => {
-          if (res.ok) {
-            setCurrentMember(null)
-            navigate('/', {replace:false})
-          }
-        })
-      }
-    
-    return(
-      <div>
-        <NavBar />
-        <BulletinContainer showBulletins={showBulletins} setShowBulletins={setShowBulletins} handleDeleteBulletin={handleDeleteBulletin}/>
-      </div>
-    )
+  const handleLogout = () => {
+      fetch(`http://localhost:3000/logout`, {
+        method: 'DELETE',
+        credentials: 'include'
+      })
+      .then(res => {
+        if (res.ok) {
+          setCurrentMember(null)
+          navigate('http://localhost:3000/', {replace:false})
+        }
+      })
+    }
+
+  return(
+    <div>
+      <NavBar 
+      setCurrentUser={setCurrentMember}
+      currentUser={currentMember}
+      handleLogout={handleLogout}/>
+      <Routes>
+      <Route path="/bulletins" element={<BulletinContainer showBulletins={showBulletins} setShowBulletins={setShowBulletins}/>}/>
+      <Route path="/" element={<Homepage/>}/>
+      <Route path="/about" element={<AboutPage/>} />
+      </Routes>
+
+    </div>
+  )
 
 }
 

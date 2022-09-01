@@ -3,11 +3,11 @@ import UnauthenticatedApp from './UnauthenticatedApp'
 
 import React, { useState, useEffect } from 'react'
 
-
 function App() {
-  const [currentMember, setCurrentMember] = useState(null)
+  const [currentMember, setCurrentMember] = useState("")
   const [authChecked, setAuthChecked] = useState(false)
 
+  console.log(currentMember)
   useEffect(() => {
     fetch('http://localhost:3000/me')
       .then(res => {
@@ -19,7 +19,8 @@ function App() {
         } else {
           setAuthChecked(true)
         }
-      })
+        console.log(authChecked)
+    })
   }, [])
 
   if(!authChecked) { return <div></div>} //<Login onLogin={setCurrentMember} />}

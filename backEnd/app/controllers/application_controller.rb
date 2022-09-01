@@ -1,12 +1,33 @@
 class ApplicationController < ActionController::API
-  include ActionController::Cookies
+  # include ActionController::Cookies
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation_errors
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   
   before_action :authenticate_member
   
+private
 
-  # goals 
+  def current_member
+    Member.find(session[:member_id])
+  end
+
+  def authenticate_member
+    byebug
+    return if current_member
+    render json: {errors: {Member: "not authorized"}}, status: :unauthorized #401
+  end
+
+  def render_uprocessable_entity(invalid)
+    render json: {errors: invalid.record.errors}, status: :unprocessable_entity #422
+  end
+
+  def render_not_found(e)
+    render json: { errors: e.message }, status: :not_found #404
+  end
+
+end
+
+ # goals 
   # only Admin can access bulletin
   # Member can view bulletin
   # Admin can view bulletin
@@ -26,24 +47,3 @@ class ApplicationController < ActionController::API
   # 
 
 # later on this will return the user that's currently logged in
- 
-private
-
-  def current_member
-    @current_member ||= Member.find_by_id(session[:member_id])
-  end
-
-  def authenticate_member
-    return if current_member
-    render json: {errors: {Member: "not authorized"}}, status: :unauthorized #401
-  end
-
-  def render_uprocessable_entity(invalid)
-    render json: {errors: invalid.record.errors}, status: :unprocessable_entity #422
-  end
-
-  def render_not_found(e)
-    render json: { errors: e.message }, status: :not_found #404
-  end
-
-end

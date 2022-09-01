@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
-    skip_before_action :authenticate_member, only: [:create]
+    skip_before_action :authenticate_member, only: [:create, :show]
+    
     # Gets all users 
     # Sets up routes for user display
 

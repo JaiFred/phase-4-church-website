@@ -1,6 +1,6 @@
 class BulletinsController < ApplicationController
   before_action :set_bulletin, only: [:show, :update, :destroy]
-  before_action :authorize_member, only: [:update, :destroy]
+  before_action :authenticate_member, only: [:update, :destroy, :index]
 
     def index
         render json: Bulletin.all, status: :ok #200
