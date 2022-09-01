@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import "./styles/navBar.css"
 
-function NavBar({setCurrentUser, currentUser, handleLogout}){
+function AuthNavBar({setCurrentUser, currentUser, handleLogout}){
 
   
     const [navbarOpen, setNavbarOpen] = useState(false)
@@ -46,8 +46,8 @@ function NavBar({setCurrentUser, currentUser, handleLogout}){
           <NavLink className="pr-6 py-6" to="/">Home</NavLink>
           <NavLink className="pr-2 py-6" to="/bulletins">Bulletin</NavLink>
           <NavLink className="pr-2 py-6" to="/about">About</NavLink>
-          <NavLink className="pr-2 py-6" to="/login">Login</NavLink>
           
+          <button  onClick={handleLogout}>Logout</button>
         </div>
         
       </nav>
@@ -55,4 +55,4 @@ function NavBar({setCurrentUser, currentUser, handleLogout}){
   
 }
 
-export default NavBar
+export default AuthNavBar

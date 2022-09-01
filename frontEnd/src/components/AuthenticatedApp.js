@@ -1,7 +1,7 @@
 import './App.css';
-import NavBar from './NavBar';
+import AuthNavBar from './AuthNavBar';
 import react, { useState, useEffect } from 'react';
-import { useNavigate, Route, Routes } from 'react-router-dom'
+import { useNavigate, Route, Routes, Navigate } from 'react-router-dom'
 
 import BulletinContainer from './BulletinContainer';
 import Homepage from './Homepage';
@@ -54,7 +54,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
 
   return(
     <div>
-      <NavBar 
+      <AuthNavBar 
       setCurrentUser={setCurrentMember}
       currentUser={currentMember}
       handleLogout={handleLogout}/>
@@ -62,6 +62,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
       <Route path="/bulletins" element={<BulletinContainer showBulletins={showBulletins} setShowBulletins={setShowBulletins}/>}/>
       <Route path="/" element={<Homepage/>}/>
       <Route path="/about" element={<AboutPage/>} />
+      <Route path="/login" element={<Navigate replace to="/"/>}/>
       </Routes>
 
     </div>
