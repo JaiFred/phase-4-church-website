@@ -12,7 +12,6 @@ private
   end
 
   def authenticate_member
-    byebug
     return if current_member
     render json: {errors: {Member: "not authorized"}}, status: :unauthorized #401
   end

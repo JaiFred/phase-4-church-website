@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import "./styles/navBar.css"
 
-function AuthNavBar({setCurrentUser, currentUser, handleLogout}){
+function AuthNavBar({setCurrentMember, currentMember, handleLogout}){
 
   
     const [navbarOpen, setNavbarOpen] = useState(false)
@@ -20,22 +20,22 @@ function AuthNavBar({setCurrentUser, currentUser, handleLogout}){
         body: JSON.stringify(body)
       })
         .then(res => res.json())
-        .then(user => {
-          console.log(user);
-          setCurrentUser(user)
+        .then(member => {
+          console.log(member);
+          setCurrentMember(member)
         })
     }
     const profilePic = () => {
-      if (currentUser.profile_picture_thumbnail_url) {
+      if (currentMember.profile_picture_thumbnail_url) {
         return (
           <img
-            src={currentUser.profile_picture_thumbnail_url}
-            alt={currentUser.username}
+            src={currentMember.profile_picture_thumbnail_url}
+            alt={currentMember.username}
             className="rounded-full ml-auto"
           />
         )
       } else {
-        return `Logged in as ${currentUser.username}`
+        return `Logged in as ${currentMember.username}`
       }
       
     }

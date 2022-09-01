@@ -12,7 +12,8 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
 
   const [showBulletins, setShowBulletins] = useState ([])
 
-  console.log(setCurrentMember)
+  // sends back a function of the "set-state" operation
+  // console.log(setCurrentMember)
   
 
     const navigate = useNavigate()
@@ -55,8 +56,8 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
   return(
     <div>
       <AuthNavBar 
-      setCurrentUser={setCurrentMember}
-      currentUser={currentMember}
+      setCurrentMember={setCurrentMember}
+      currentMember={currentMember}
       handleLogout={handleLogout}/>
       <Routes>
       <Route path="/bulletins" element={<BulletinContainer showBulletins={showBulletins} setShowBulletins={setShowBulletins}/>}/>

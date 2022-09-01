@@ -21,7 +21,7 @@ function LoginForm({ onLogin, setCurrentMember }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((member) => setCurrentMember(member.id));
+        r.json().then((member) => setCurrentMember(member));
       } else {
         r.json().then((err) => setErrors(err.errors));
         errorSpace = <Error key={errors}>{errors}</Error>
