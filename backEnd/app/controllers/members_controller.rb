@@ -10,8 +10,9 @@ class MembersController < ApplicationController
 
     # Get '/me' 
     def show
+        current_member = Member.find(session[:member_id])
         if current_member
-            render json: current_member, status: :ok
+            render json: current_member, serializer: MemberSerializer, status: :ok
         else
             render json: { errors: "No Active Sessions" }, status: :unauthorized #401
         end

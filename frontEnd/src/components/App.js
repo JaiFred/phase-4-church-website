@@ -1,18 +1,21 @@
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
+import Login from './Login'
 
 import React, { useState, useEffect } from 'react'
 
 function App() {
-  const [currentMember, setCurrentMember] = useState("")
+  const [currentMember, setCurrentMember] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
 
   console.log(currentMember)
   useEffect(() => {
-    fetch('http://localhost:3000/me')
+    fetch('/me', {
+      credentials: 'include'
+    })
       .then(res => {
         if (res.ok) {
-          res.json().then((member) => {
+          res.json().then(member => {
             setCurrentMember(member)
             setAuthChecked(true)
           })
@@ -20,27 +23,32 @@ function App() {
           setAuthChecked(true)
         }
         console.log(authChecked)
-    })
+     })
   }, [])
+  
+  //{return <div></div>}
 
-  if(!authChecked) { return <div></div>} //<Login onLogin={setCurrentMember} />}
+  if(!currentMember) <Login setCurrentMember={setCurrentMember} />
   return (
-      <div>
-        { currentMember ? (
-        
-        <AuthenticatedApp
-            setCurrentMember={setCurrentMember}
-            currentMember={currentMember}
-            />
+    <div>
+      
+      { currentMember ? (
+      
+      <AuthenticatedApp
+          setCurrentMember={setCurrentMember}
+          currentMember={currentMember}
+          />
+    
+        ):(
+
           
-          ):(
-        <UnauthenticatedApp
-            setCurrentMember={setCurrentMember}
-            />
-          )
-        }
-      </div>
-   
+      <UnauthenticatedApp
+          setCurrentMember={setCurrentMember}
+          />
+          
+        )
+      }
+    </div>
   )
 }
 

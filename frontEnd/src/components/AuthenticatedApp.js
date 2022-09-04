@@ -12,7 +12,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
 
   const [showBulletins, setShowBulletins] = useState ([])
 
-  // sends back a function of the "set-state" operation
+  // sends back a function of the "set-state" operation 
   // console.log(setCurrentMember)
   
 
@@ -48,7 +48,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
       .then(res => {
         if (res.ok) {
           setCurrentMember(null)
-          navigate('http://localhost:3000/', {replace:false})
+          navigate('/', {replace:false})
         }
       })
     }

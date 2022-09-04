@@ -1,8 +1,10 @@
 
+
 function AboutPage(){
 
     return(
     <div>
+        
         <p>
             The record reads in the year of our Lord 1887, the members of Providence Baptist Church, Beulahville, Virginia set out to organize what is now the St. Paul Baptist Church located near Globe, Virginia in King William County. Having been called upon by the members of the St. Paul Church, Brother Horace Roane, did accordingly, on the 6th day of October in the year of the Lord 1887, after due examination, proceeded by prayer and imposition of hands, the members did set apart and ordain the said brother to the full work of the Gospel Ministry, the work, whereunto, we trust he has been called by the Great Head of the Church.
         </p>

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # include ActionController::Cookies
+  include ActionController::Cookies
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation_errors
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   
@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
 private
 
   def current_member
-    Member.find(session[:member_id])
+    @current_member ||= Member.find_by_id(session[:member_id])
   end
 
   def authenticate_member

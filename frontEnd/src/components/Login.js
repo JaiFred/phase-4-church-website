@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Button } from "./styles";
 import styled from "styled-components";
+
+import NavBar from "./NavBar";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
-import { Button } from "./styles";
 
 function Login({ onLogin, setCurrentMember }) {
   
@@ -10,6 +12,7 @@ function Login({ onLogin, setCurrentMember }) {
 
   return (
     <div>
+      <NavBar setCurrentMember={setCurrentMember}/>
       <Wrapper>
         <Logo>Richmond Church</Logo>
         {showLogin ? (
