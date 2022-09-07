@@ -3,6 +3,8 @@ import UnauthenticatedApp from './UnauthenticatedApp'
 import Login from './Login'
 
 import React, { useState, useEffect } from 'react'
+import { Navigate, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   const [currentMember, setCurrentMember] = useState(null)
@@ -19,20 +21,28 @@ function App() {
             setCurrentMember(member)
             setAuthChecked(true)
           })
-        } else {
-          setAuthChecked(true)
         }
-        console.log(authChecked)
+        // } else {
+        //   setAuthChecked(true)
+        // }
+        // console.log(authChecked)
      })
   }, [])
   
   //{return <div></div>}
 
-  if(!currentMember) <Login setCurrentMember={setCurrentMember} />
+  if(!currentMember) return <Login setCurrentMember={setCurrentMember} />
   return (
     <div>
+    <BrowserRouter>
+      <Routes>
+      <Route path="*" element={currentMember == null ? <Navigate to="/login" replace/> : <Navigate to="/" replace/>} />
+      <Route path="/" element={<Login currentMember={currentMember} setCurrentMember={setCurrentMember}/>} />
+      <Route path="/home"/>
+    </Routes>
+    </BrowserRouter>
       
-      { currentMember ? (
+      {/* { currentMember ? (
       
       <AuthenticatedApp
           setCurrentMember={setCurrentMember}
@@ -47,7 +57,7 @@ function App() {
           />
           
         )
-      }
+      } */}
     </div>
   )
 }
