@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   get "/me", to: "members#show"
   get "/bulletins", to: "bulletins#index"
+  patch "/update_bulletins", to: "bulletins#update"
+  delete "/delete_bulletins", to: "bulletins#destroy"
   get "/admin", to: "admins#show"
   post "/signup", to: "members#create"
   post "/adminsignup", to: "admins#create"

@@ -50,3 +50,5 @@ b2 = Bulletin.create(title: "Community Gardening", activity: "Community Service"
 b3 = Bulletin.create(title: "Community Jungle Gym Fundraiser", activity: "Community Service", starts: "2/14/2022", ends: "10/25/2022", member_id: m3.id, admin_id: ad1.id)
 b4 = Bulletin.create(title: "Late Service", activity: "Regular Service", starts: "8/26/2022", ends: "8/26/2022", member_id: m4.id, admin_id: ad1.id)
 b5 = Bulletin.create(title: "Weekend Potluck", activity: "Outside Service", starts: "9/16/2022", ends: "9/16/2022", member_id: m3.id, admin_id: ad1.id)
+
+# b1 = Bulletin.create(title: "Morning Prayer", activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: Member.first.id, admin_id: Admin.first.id)

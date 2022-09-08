@@ -5,14 +5,28 @@ import { useEffect } from 'react'
 import BulletinDetails from "./BulletinDetails";
 
 function BulletinContainer({ showBulletins, setShowBulletins }){
+    
+    function handleDeleteBulletin(deletedID) {
+        // console.log(deletedID)
+        const updatedBulletinsArray = bulletins.filter(
+          (bulletin) => bulletin.id !== deletedID
+          
+        );
+        setBulletins(updatedBulletinsArray);
+    }
+
     const bulletinList = showBulletins.map((bulletin) =>(
-        <BulletinDetails key={bulletin.id} bulletin={bulletin}/>
+        <BulletinDetails key={bulletin.id} bulletin={bulletin} handleDeleteBulletin={handleDeleteBulletin}/>
     ))
 
     // function WatchContainer({ watches, handleDeleteWatch }){
     // const watchCardList = watches.map((watch)=>(
     //     <WatchCard key={watch.id} watch={watch} handleDeleteWatch={handleDeleteWatch}/>
     // ))
+    
+    const [bulletins, setBulletins] = useState([])
+
+    
 
 
 
@@ -32,10 +46,13 @@ function BulletinContainer({ showBulletins, setShowBulletins }){
     return (
 
         <div className="bulletin-container">
+            {bulletinList}
             <div className="bulletin-list">
                 <div className="first-bulletin">
                     <p>title: "Morning Prayer"</p>
-                    <p>activity: "Regular Service", starts: "8/30/2022", ends: "8/30/2022", member_id: Member.first.id, admin_id: Admin.first.id"</p>
+                    <p>activity: "Regular Service"</p>
+                    <p>starts: "8/30/2022", ends: "8/30/2022"</p>
+                    <p>posted by BillTT</p>
                 </div>
                 <div className="second-bulletin">
                     <p>title: "Community Gardening"</p>
