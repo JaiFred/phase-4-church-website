@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     # POST '/login'
     def create_admin
         admin = Admin.find_by(username: params[:username])
-        if member&.authenticate(params[:password])
+        if admin&.authenticate(params[:password])
             session[:admin_id] = admin.id
             render json: admin, status: :ok
         end
