@@ -50,5 +50,4 @@ class BulletinsController < ApplicationController
         params.permit(:title, :activity, :starts, :ends, :member_id)
     end
 
-
 end

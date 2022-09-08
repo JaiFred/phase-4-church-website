@@ -10,7 +10,8 @@ class MembersController < ApplicationController
 
     # Get '/me' 
     def show
-        current_member = Member.find(session[:member_id])
+        current_member = Member.find_by_id(session[:member_id])
+        puts "current member#{session[:member_id]}"
         if current_member
             render json: current_member, serializer: MemberSerializer, status: :ok
         else
