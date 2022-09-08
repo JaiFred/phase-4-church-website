@@ -21,28 +21,27 @@ function App() {
             setCurrentMember(member)
             setAuthChecked(true)
           })
+        } else {
+          setAuthChecked(true)
         }
-        // } else {
-        //   setAuthChecked(true)
-        // }
-        // console.log(authChecked)
+        console.log(authChecked)
      })
   }, [])
   
   //{return <div></div>}
 
-  if(!currentMember) return <Login setCurrentMember={setCurrentMember} />
+  if(!currentMember) <Login setCurrentMember={setCurrentMember} />
   return (
     <div>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Routes>
       <Route path="*" element={currentMember == null ? <Navigate to="/login" replace/> : <Navigate to="/" replace/>} />
       <Route path="/" element={<Login currentMember={currentMember} setCurrentMember={setCurrentMember}/>} />
       <Route path="/home"/>
     </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
       
-      {/* { currentMember ? (
+      { currentMember ? (
       
       <AuthenticatedApp
           setCurrentMember={setCurrentMember}
@@ -57,7 +56,7 @@ function App() {
           />
           
         )
-      } */}
+      }
     </div>
   )
 }

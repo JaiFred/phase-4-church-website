@@ -41,7 +41,7 @@ function AuthenticatedApp({ currentMember, setCurrentMember }){
     console.log("made it")  
 
   const handleLogout = () => {
-      fetch(`http://localhost:3000/logout`, {
+      fetch(`/logout`, {
         method: 'DELETE',
         credentials: 'include'
       })
